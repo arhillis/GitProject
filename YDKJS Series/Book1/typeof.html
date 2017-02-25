@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>YDKJS: Variables and Typeof</title>
+    </head>
+    <body>
+        <script type="text/JavaScript">
+            var a = ["Hello, World", 42, true, null, undefined, {b:"c;"}];
+            for(var i = 0; i < a.length; i++){
+                document.write(a[i] + " is a " + typeof(a[i])+ "<br />");
+            }
+            
+            document.write("This array is " + a.length + " indexes long." + "<br /><br />");
+
+            //Page 36
+            var a = "42";
+            var b = Number(a);//Explicit coercion- the programmer manually conver the string to a number
+
+            document.write("a = \"" + a + "\": " + String(typeof a) + "<br />"); 
+            //A string: a concationation of the strings "4" and "2"
+            document.write("b = " + b + ": " + String(typeof b) + "<br />");
+            //The actually number, 42
+
+            //Implicit coercion: the computer has to figure out what the programmer was intending
+            var c = a / 2;
+            document.write("c = " + c + ": " + String(typeof c) + " (derived by implicit coercion) <br /><br />");
+
+            //Strict equality vs. non-strict equality
+            document.write("a == b: " + String(a == b) + " (implicit coercion allowed)<br />"); //true
+            document.write("a === b: " + String(a === b) + " (implicit coercion NOT allowed)<br /><br />"); //false
+
+            var one = [1, 2, 3];
+            var two = [1, 2, 3];
+            var three = "1, 2, 3";
+
+            console.log(one == three);
+            document.write("one == three: " + (one == three) + "<br />"); //true
+            document.write("two == three: " + String(two == three) + "<br />"); //true
+            document.write("one == two: " + String(one == two) + "<br />"); //false
+        </script>
+    </body>
+</html>

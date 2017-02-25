@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+      <meta charset="utf-8">
+      <title>YDKJS: Conditionals</title>
+    </head>
+    <body>
+        <script type="text/JavaScript">
+            //If statements: page 43
+
+            var num = prompt("Give me a number between 1 and 20");
+/*
+            if(num < 1){
+                num = prompt("No, it must be greater than 1. Give me a number between 1 and 20");
+            }
+            else if(num > 20){
+                num = prompt("No, it must be less than 20. Give me a number between 1 and 20");
+            }
+            else{
+                document.write("That's a great number!");
+            }
+        */
+
+        //If getting number inputs from the user, you have to parse them into numbers first
+        switch (Number(num)){
+            case 4:
+                document.write("My little girl is 4<br />");
+                break;
+            case 11:
+                document.write("My class rank!<br />");
+                break;
+            default:
+                document.write("That's a great number!<br />");
+        }
+        var character = "Edith";
+
+        switch (character){
+        case "Edith":
+            document.write("Poor, poor Edith");
+            break;
+        case "Mary":
+            document.write("The blessed Lady Mary! Ha! Not really!");
+            break;
+        case "The Dowager":
+            document.write("What is a weekend?");
+            break;
+        case "Mrs. Hughes":
+            document.write("A woman of mystery if there ever was one.");
+            break;
+        default:
+            document.write("I haven't added that character yet.");
+                        }
+        </script>
+    </body>
+</html>

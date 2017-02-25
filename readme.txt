@@ -1,0 +1,1 @@
+This is the git repsitory that I am creating with thenewboston channel on YouTube. Maybe I'll have better luck this time. So far, so good!

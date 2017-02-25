@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>YDKJS: Phone Exercise</title>
+    </head>
+    <body>
+        <div id="purchases"></div>
+        <p id="message"></p>
+
+        <script type="text/JavaScript">
+            const phonePrice = 99.99, casePrice = 9.99, taxRate = 0.0825;
+
+            var balance = prompt("The phones are $99.99 each. How much do you have to spend");
+            
+            var phones = 0, cases = 0, total = 0.00;
+            var withCase = false;
+
+            function buyCase(){
+                return casePrice + (casePrice * taxRate);
+            }
+            
+            function buyPhone(){
+                var purchase = phonePrice + (phonePrice * taxRate);
+                if(balance > purchase + buyCase()){
+                    purchase += buyCase();
+                    withCase = true;
+                }
+                else{
+                    withCase = false;
+                }
+                return purchase;
+            }
+
+            function toMoney(amt){
+                return "$" + String(amt.toFixed(2));
+            }
+
+           function printPurchase(){
+                total += buyPhone();          
+                balance -= buyPhone();
+                phones++;
+                var record = "After Phone #" + String(phones);
+                
+                if(withCase){
+                    record += ", with a case";
+                    cases++;
+                }
+                else{
+                    record += ", without a case";
+                }
+                console.log (record + ", you have spent " + toMoney(total) +", and you have " + toMoney(balance) + " left.<br />");
+            }
+
+            if(balance < buyPhone()){
+                console.log("Sorry, but you can't afford any phones.");
+            }
+            else{
+                while(balance > phonePrice){          
+                    printPurchase();
+                }
+                //Final message
+                console.log("You can afford " + phones + " phones with " + cases + " cases.");
+            }
+        </script>
+    </body>
+</html>

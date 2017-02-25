@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>YDKJS: Functions</title>
+    </head>
+    <body>
+        <script type="text/JavaScript">
+            function foo(){
+                return 42;
+            }
+
+            foo.bar = "hello world";
+            
+            document.write(String(typeof foo) + "<br />"); //function
+            document.write(String(typeof foo()) + "<br />"); //number
+            document.write(String(typeof foo.bar) + "<br />"); //string
+
+            //The idea from page 34 is that strings and numbers are also types of objects, and therefore, have methods that you can call on them.
+
+            var a = "hello world";
+            var b = 3.14159;
+
+            document.write("<br />" + String(a.length) + "<br />"); //11
+            document.write(String(a.toUpperCase()) + "<br />"); //HELLO WORLD 
+            document.write(String(b.toFixed(2)) + "<br />"); //3.14
+        </script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+      <meta charset="utf-8">
+      <title>YDKJS: Hoisting</title>
+    </head>
+    <body>
+        <script type="text/JavaScript">
+            var a = 2;
+
+            foo();
+
+            function foo(){
+                a = 3;
+                console.log(a); //3
+
+                //Without this declaration at the bottom, a would remain 3 after we leave foo
+                var a;
+            }
+
+            console.log(a); //2
+
+            //Nested scopes
+            function foofoo(){
+                var f = 1;
+
+                function barbie(){
+                    var g = 2;
+
+                    function bazzie(){
+                        var h = 3;
+                        i = 0;
+                        document.write(f, g, h);
+                        document.write("<br />");
+                    }
+
+                    bazzie();
+                    //h is not availiable outside of bazzie()
+                    document.write(f, g, i); //but i is
+                    document.write("<br />");
+                }
+                barbie();
+                //g is not availiable ouside of barbie()
+                document.write(f,g);
+                document.write("<br />");
+            }
+            foofoo();
+        </script>
+    </body>
+</html>
