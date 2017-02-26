@@ -42,10 +42,26 @@
                 }
                 barbie();
                 //g is not availiable ouside of barbie()
-                document.write(f,g);
+                //document.write(f,g);
                 document.write("<br />");
             }
             foofoo();
+
+            function jack(){
+                var x = 1;
+
+                if(x >= 1){
+                    let y = 2;//Usng "let" instead of "var" means that y is only availiable inside the if statement
+
+                    while(y < 5){
+                        let z = y * 2;
+                        y++;
+
+                        console.log(x+z);
+                    }
+                }
+            }
+            jack();//5, 7, 9
         </script>
     </body>
 </html>

@@ -25,34 +25,53 @@
         */
 
         //If getting number inputs from the user, you have to parse them into numbers first
-        switch (Number(num)){
-            case 4:
-                document.write("My little girl is 4<br />");
-                break;
-            case 11:
-                document.write("My class rank!<br />");
-                break;
-            default:
-                document.write("That's a great number!<br />");
-        }
-        var character = "Edith";
+            switch (Number(num)){
+                case 4:
+                    document.write("My little girl is 4<br />");
+                    break;
+                case 11:
+                    document.write("My class rank!<br />");
+                    break;
+                default:
+                    document.write("That's a great number!<br />");
+            }
+                    var character = "Edith";
 
-        switch (character){
-        case "Edith":
-            document.write("Poor, poor Edith");
-            break;
-        case "Mary":
-            document.write("The blessed Lady Mary! Ha! Not really!");
-            break;
-        case "The Dowager":
-            document.write("What is a weekend?");
-            break;
-        case "Mrs. Hughes":
-            document.write("A woman of mystery if there ever was one.");
-            break;
-        default:
-            document.write("I haven't added that character yet.");
+                    switch (character){
+                            case "Edith":
+                                document.write("Poor, poor Edith");
+                                break;
+                            case "Mary":
+                                document.write("The blessed Lady Mary! Ha! Not really!");
+                                break;
+                            case "The Dowager":
+                                document.write("What is a weekend?");
+                                break;
+                            case "Mrs. Hughes":
+                                document.write("A woman of mystery if there ever was one.");
+                                break;
+                            default:
+                                document.write("I haven't added that character yet.");
                         }
+                
+                //Page 39
+                var a = [1, 2, 3];
+                var b = [1, 2, 3];
+                var c = "1,2,3";
+
+                console.log(a == c); //true
+                console.log(b == c); //true
+                console.log(a == b); //false
+
+                var d = 41;
+                var e = "42";
+                var f = "43";
+
+                //console.log("\n");
+                console.log(a < b); //false
+                console.log(b < c); //false
+
+                
         </script>
     </body>
 </html>
