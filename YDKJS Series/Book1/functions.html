@@ -3,6 +3,9 @@
     <head>
       <meta charset="utf-8">
       <title>YDKJS: Functions</title>
+      <style>
+        
+      </style>
     </head>
     <body>
         <script type="text/JavaScript">
@@ -24,6 +27,26 @@
             document.write("<br />" + String(a.length) + "<br />"); //11
             document.write(String(a.toUpperCase()) + "<br />"); //HELLO WORLD 
             document.write(String(b.toFixed(2)) + "<br />"); //3.14
+
+            //Functions as variables (page 47)
+            //Anomymous function
+            var fubar = function(){
+                return "Situation not normal.";
+            };
+
+            //Named function
+            var s = function snafu(){
+                return "Situation normal.";
+            };
+
+            var crazy = prompt("On a scale of one to ten, how crazy are things today?");
+
+            var factor = (crazy < 11) ? s() : fubar();
+            alert(factor);
+
+            (function rightNow(){
+                alert("I am an IIFE, and I wanted to be executed RIGHT NOW!!!");
+            })();
         </script>
     </body>
 </html>
