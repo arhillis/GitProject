@@ -17,7 +17,6 @@ Disclaimer: No copyright or patent infringement is intended. This project is mea
 
             var phone = {
                 price: 99.99,
-                casePrice: 9.99, 
                 quantity: 0,
                 withCase: false
             }
@@ -31,7 +30,7 @@ Disclaimer: No copyright or patent infringement is intended. This project is mea
             
             var purchases = document.getElementById("purchases");
         
-            var cases = 0, total = 0.00;
+            var total = 0.00;
 
             function buyCase(){
                 return cover.price + (cover.price * taxRate);
@@ -39,13 +38,8 @@ Disclaimer: No copyright or patent infringement is intended. This project is mea
             
             function buyPhone(){
                 var purchase = phone.price + (phone.price * taxRate);
-                if(balance > purchase + buyCase()){
-                    purchase += buyCase();
-                    phone.withCase = true;
-                }
-                else{
-                    phone.withCase = false;
-                }
+                phone.withCase = (balance > purchase + buyCase());
+                purchase += (phone.withCase) ? buyCase() : 0;
                 return purchase;
             }
 
@@ -57,14 +51,10 @@ Disclaimer: No copyright or patent infringement is intended. This project is mea
                 total += buyPhone();          
                 balance -= buyPhone();
                 phone.quantity++;
-                var record = "After Phone #" + String(phone.quantity);
-                purchases.innterHTML = record;
-                if(phone.withCase){
-                    record += ", with a case";
-                    cases++;
-                }
-                else{
-                    record += ", without a case";
+                var record = "Phone #" + String(phone.quantity) + ":";
+                record += (phone.withCase) ? " with a case" : " without a case";
+                if(phone.withCase){                    
+                    cover.quantity++;
                 }
                 purchases.innerHTML += (record + ", you have spent " + toMoney(total) +", and you have " + toMoney(balance) + " left.<br />");
             }
@@ -77,7 +67,7 @@ Disclaimer: No copyright or patent infringement is intended. This project is mea
                     printPurchase();
                 }
                 //Final message
-                document.write("You can afford " + phone.quantity + " phones with " + cases + " cases.");
+                document.write("You can afford " + phone.quantity + " phones with " + cover.quantity + " cases.");
             }
         </script>
     </body>
