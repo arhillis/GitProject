@@ -1,5 +1,4 @@
 <!-- I am going to modifty the phone exercise in chapter 1 of "Up & Going" of the "You don't Know JavaScript" series, by Kyle Simpson.  My intention is to include DOM manipulation and eventually have a working order form.
-
 Disclaimer: No copyright or patent infringement is intended. This project is meant to help me expand and demonstrate my understanding of JavaScript. -->
 
 <!DOCTYPE html>
@@ -14,24 +13,20 @@ Disclaimer: No copyright or patent infringement is intended. This project is mea
 
         <script type="text/JavaScript">
             const taxRate = 0.0825;
-
             var phone = {
                 price: 99.99,
                 quantity: 0,
                 withCase: false
             }
-
             var cover = {
                 price: 9.99, 
                 quantity: 0
             }
-
             var balance = prompt("The phones are $99.99 each. How much do you have to spend");
             
             var purchases = document.getElementById("purchases");
         
             var total = 0.00;
-
             function buyCase(){
                 return cover.price + (cover.price * taxRate);
             }
@@ -42,11 +37,9 @@ Disclaimer: No copyright or patent infringement is intended. This project is mea
                 purchase += (phone.withCase) ? buyCase() : 0;
                 return purchase;
             }
-
             function toMoney(amt){
                 return "$" + String(amt.toFixed(2));
             }
-
            function printPurchase(){
                 total += buyPhone();          
                 balance -= buyPhone();
@@ -58,7 +51,6 @@ Disclaimer: No copyright or patent infringement is intended. This project is mea
                 }
                 purchases.innerHTML += (record + ", you have spent " + toMoney(total) +", and you have " + toMoney(balance) + " left.<br />");
             }
-
             if(balance < buyPhone()){
                 document.write("Sorry, but you can't afford any phones.");
             }

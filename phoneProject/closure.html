@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+      <meta charset="utf-8">
+      <title>YDKJS: Closures</title>
+    </head>
+    <body>
+        <p>Phones as objects? Of course!</p>
+        <button id = "btn">Show prices</button>
+        <br>
+        <script type="text/JavaScript">      
+            var taxRate = 0.0825;
+            var btnEl = document.getElementById("btn");
+
+            var phone ={
+                price: 99.99, 
+                quanity: 0,
+                withCase: false
+            };
+
+            var cover = {
+                price: 9.99, 
+                quanity: 0
+            };
+
+            function buy(tax){
+
+                function format(amt){
+                    return (amt + (amt * tax)).toFixed(2);
+                }
+
+                return format;
+            }
+
+            var buyItem = buy(taxRate);
+            var buyPhone = buyItem(phone.price);
+            var buyCase  = buyItem(cover.price);
+
+            btnEl.addEventListener("click", function(){
+                document.write("$" + String(buyPhone) + "<br />");
+                document.write("$" + String(buyCase) + "<br />");
+            });
+
+            
+        </script>
+    </body>
+</html>
