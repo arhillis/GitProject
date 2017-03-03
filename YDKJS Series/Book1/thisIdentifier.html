@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+      <meta charset="utf-8">
+      <title>YDKJS: Conditionals</title>
+    </head>
+    <body>
+        <script type="text/JavaScript">
+            //Page 52
+            function foo(){
+                document.write(this.bar + "<br />");
+            }
+
+            var bar = "global";
+
+            var obj1 = {
+                bar: "obj1",
+                foo: foo
+            };
+
+            var obj2 = {
+                bar: "obj2",
+                foo: foo
+            };
+
+            foo();
+            obj1.foo();
+            foo.call(obj2);
+            new foo();
+
+            var foofoo = {
+                a: 42
+            };
+
+            var bar = Object.create(foofoo);
+
+            bar.b = "Hello world";
+
+            console.log(bar.b);
+            console.log(bar.a);
+        </script>
+    </body>
+</html>

@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        
+    <head>        
       <meta charset="utf-8">
       <title>YDKJS: Closures</title>
+      <style>
+        span{
+            font-weight: bold;
+        }
+      </style>
     </head>
     <body>
-        <p>Phones as objects? Of course!</p>
+        
+        <div id="prices">This is where the prices are supposed to be</div>
+        <input type="text"></input>
         <button id = "btn">Show prices</button>
         <br>
         <script type="text/JavaScript">      
@@ -37,9 +43,10 @@
             var buyPhone = buyItem(phone.price);
             var buyCase  = buyItem(cover.price);
 
+            var pricesEl = document.getElementById("prices");
+
             btnEl.addEventListener("click", function(){
-                document.write("$" + String(buyPhone) + "<br />");
-                document.write("$" + String(buyCase) + "<br />");
+                pricesEl.innerHTML += "<br><span>Phone price</span>: $" + String(buyPhone) + " Case price: $" + String(buyCase);
             });
 
             
