@@ -7,17 +7,35 @@
         span{
             font-weight: bold;
         }
+        th,td{
+            width: 100px;
+        }
+        th{            
+            border: 2px solid black;
+        }
+        td{
+            border: .75px solid grey;
+        }
       </style>
     </head>
     <body>
-        
-        <div id="prices">This is where the prices are supposed to be</div>
-        <input type="text"></input>
+        <table>
+            <thead>
+                <th>Amount</th>
+                <th>Tax</th>
+                <th>Total</th>
+                <th>Balance Left</th>
+            </thead>
+            <tbody  id = "orderform">
+            </tbody>
+        </table>
+        <input type="text" id="box"></input>
         <button id = "btn">Show prices</button>
         <br>
         <script type="text/JavaScript">      
             var taxRate = 0.0825;
             var btnEl = document.getElementById("btn");
+            var balance = prompt("How much money do you have?");
 
             var phone ={
                 price: 99.99, 
@@ -44,12 +62,17 @@
             var buyCase  = buyItem(cover.price);
 
             var pricesEl = document.getElementById("prices");
-
+            var boxEl = document.getElementById("box");
+            var formEl = document.getElementById("orderform");
             btnEl.addEventListener("click", function(){
-                pricesEl.innerHTML += "<br><span>Phone price</span>: $" + String(buyPhone) + " Case price: $" + String(buyCase);
-            });
-
-            
+                if(buyPhone < balance){
+                    formEl.innerHTML += "<tr><td> $" + String(phone.price) + "</td><td>$" + String(buyPhone - phone.price) + "<td>$" + String(buyPhone) + "</td><td>$" + String((balance - buyPhone).toFixed(2)) + "</td></tr>";
+                    balance -= buyPhone;
+                }
+                else{
+                    alert("Sorry, you don't have enough money.");
+                }
+            });            
         </script>
     </body>
 </html>
