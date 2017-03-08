@@ -16,6 +16,10 @@
         td{
             border: .75px solid grey;
         }
+        div{
+            display: flex;
+        }
+        
       </style>
     </head>
     <body>
@@ -29,8 +33,16 @@
             <tbody  id = "orderform">
             </tbody>
         </table>
-        <input type="text" id="box"></input>
-        <button id = "btn">Show prices</button>
+        <div>
+            <form>
+                <select name = "phones">
+                    <option value = "justaphone">Just-A-Phone</option>
+                    <option value = "str8aphone">Str8-A-Phone</option>
+                    <option value = "dialaphone">Dial-A-Phone</option>
+                </select>            
+            </form>
+            <button id = "btn">Show prices</button>
+        </div>
         <br>
         <script type="text/JavaScript">      
             var taxRate = 0.0825;

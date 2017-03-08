@@ -1,0 +1,11 @@
+RHS vs LHS references
+
+RHS
+    1. foo
+    2. return
+    3. foo(2)
+    4.
+LHS
+    1. a
+    2. b
+    3. 
