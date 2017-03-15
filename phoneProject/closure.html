@@ -42,6 +42,7 @@
                 </select>            
             </form>
             <button id = "btn">Show prices</button>
+            <p id = "test"></p>
         </div>
         <br>
         <script type="text/JavaScript">      
@@ -77,6 +78,9 @@
             var boxEl = document.getElementById("box");
             var formEl = document.getElementById("orderform");
             btnEl.addEventListener("click", function(){
+                if(item.phones.selectedIndex == 0){
+                    document.getElementById("test").textContent == "El cheepo, eh?";
+                }
                 if(buyPhone < balance){
                     formEl.innerHTML += "<tr><td> $" + String(phone.price) + "</td><td>$" + String(buyPhone - phone.price) + "<td>$" + String(buyPhone) + "</td><td>$" + String((balance - buyPhone).toFixed(2)) + "</td></tr>";
                     balance -= buyPhone;
