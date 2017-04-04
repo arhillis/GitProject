@@ -58,6 +58,12 @@
                 }
                 buttonEl2.texContent = "Now I'm blue!";                 
             });
+            buttonEl2.addEventListener("onmouseout", function(){
+                for(var i = 0; i < spanEls.length; i++){
+                    spanEls[i].textContent = " ";
+                }
+                buttonEl2.texContent = "Now I'm blue!";                 
+            });
                     
         </script>
     </body>
